@@ -1,24 +1,23 @@
 default: setup
 
+.PHONY: setup
 setup:
 	ansible-galaxy collection install community.docker
 
-terragrunt-clean:
-	rm -rf terraform/environments/local/.terraform
-	rm -f terraform/environments/local/terraform.tfstate
-	rm -f terraform/environments/local/terraform.tfstate.backup
-	rm -rf terraform/environments/local/.terragrunt-cache
-
-terragrunt: terragrunt-clean
+.PHONY: terraform
+terragrunt:
+	export TG_LOG_FORMAT=bare && \
 	cd terraform/environments/local && \
 	terragrunt init && \
 	terragrunt plan && \
 	terragrunt apply -auto-approve
 
+.PHONY: ansible
 ansible:
 	cd ansible && \
 	ansible-playbook -i inventory.ini playbook.yml
 
+.PHONY: cleanup
 cleanup:
 	cd terraform/environments/local && \
 	terragrunt destroy -auto-approve

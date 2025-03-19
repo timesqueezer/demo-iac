@@ -48,3 +48,5 @@ var/
 *.swp
 *~
 .DS_Store
+
+.ansible
