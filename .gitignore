@@ -1,0 +1,50 @@
+# Terraform & Terragrunt
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfstate.*.backup
+.terragrunt-cache/
+.terraform.lock.hcl
+*.tfplan
+
+# Local .terraform directories
+**/.terraform/*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Terragrunt generated files
+.terragrunt-cache/
+terragrunt-debug.tfvars.json
+
+# Ansible
+*.retry
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Editor files
+.vscode
+*.swp
+*~
+.DS_Store

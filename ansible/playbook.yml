@@ -1,0 +1,15 @@
+- name: Install Nginx
+  hosts: local_container
+  remote_user: root
+  tasks:
+    - name: Nginx aktualisieren und sicherstellen, dass es läuft
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true
+
+    - name: Einfache HTML-Seite bereitstellen
+      ansible.builtin.copy:
+        content: "<h1>Ansible + Terraform + Terragrunt Demo!</h1>"
+        dest: /var/www/html/index.html
+        mode: '0644'
